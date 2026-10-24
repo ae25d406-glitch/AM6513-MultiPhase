@@ -1,0 +1,10 @@
+// two phases and surface tension
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object phaseProperties;
+}
+phases (water air);
+sigma 0.073;// surface tension

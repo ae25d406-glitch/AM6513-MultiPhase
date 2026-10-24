@@ -1,0 +1,46 @@
+// discritsation in FVM
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object fvSchemes;
+}
+
+ddtSchemes
+{
+    default Euler;//1st order implicit time
+}
+
+gradSchemes
+{
+    default Gauss linear;//2nd order central 
+}
+
+divSchemes
+{
+    // convection term -2nd order upwind scheme
+    div(rhoPhi,U) Gauss linearUpwind grad(U);
+    
+    //VOF eqn d(alpha)/dt + div(U alpha) = 0
+    //vanLeer + interface compression (keeps the interface sharp)
+    div(phi,alpha) Gauss interfaceCompression vanLeer 1;
+
+    //viscous stress term
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
+}
+
+laplacianSchemes
+{
+    default Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default linear;
+}
+
+snGradSchemes
+{
+    default corrected;
+}

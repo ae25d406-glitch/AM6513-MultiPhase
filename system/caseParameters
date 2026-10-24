@@ -1,0 +1,17 @@
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object caseParameters;
+}
+//Mesh (5mm * 6mm)
+//grid study: 10 20 40 cells/mm - nx,ny=(50,60),(100,120),(200.240)
+nx 100;// cells in x direction 
+ny 120;// cells in y direction
+
+//initial condition 
+dropRad 1.25e-3;// diameter 2.5mm - radius 1.25mm
+dropCtr (0 1.30e-3 0);
+impU (0 -0.3 0);//impact velocity
+contactAng 110;// contact angle water-teflon

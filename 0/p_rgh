@@ -1,0 +1,43 @@
+
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class volScalarField;
+    object p_rgh;
+}
+
+dimensions [1 -1 -2 0 0 0 0];
+
+internalField uniform 0;
+
+boundaryField
+{
+    plate
+    {
+     // pressure grad set such that flux through the wall is zero
+        type fixedFluxPressure;
+        value uniform 0;
+    }
+
+    atmosphere
+    {
+        type prghTotalPressure;// constant pressure
+        p0 uniform 0;
+    }
+
+    front
+    {
+        type wedge;
+    }
+
+    back
+    {
+        type wedge;
+    }
+
+    axis
+    {
+        type empty;
+    }
+}

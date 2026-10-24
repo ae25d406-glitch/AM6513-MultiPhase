@@ -1,0 +1,11 @@
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object physicalProperties.air;
+}
+viscosityModel constant;
+// kinematic viscosity
+nu 1.5e-05; // mu = 1.8e-5 Pa s / 1.2 kg/m^3
+rho 1.2;  // kg/m^3

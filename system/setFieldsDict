@@ -1,0 +1,30 @@
+// air(alpha.water=0) and at rest U=0
+//sphere of radius 1.25 mm is water(alpha.water=1) moving down at 0.3m/s
+
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object setFieldsDict;
+}
+#include "caseParameters"
+defaultValues
+{
+    alpha.water 0;
+    U (0 0 0);
+}
+zones
+{
+    drop
+    {
+        type sphere;
+        centre $dropCtr;
+        radius $dropRad;
+        values
+        {
+            alpha.water 1;
+            U $impU;
+        }
+    }
+}

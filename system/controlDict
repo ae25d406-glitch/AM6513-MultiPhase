@@ -1,0 +1,30 @@
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object controlDict;
+}
+
+solver incompressibleVoF;// 2phase VOF solver
+
+startFrom startTime;
+startTime 0;//start time 
+stopAt endTime;// stop time
+endTime 0.15;
+deltaT 1e-6;//time step 
+
+writeControl adjustableRunTime;
+writeInterval 5e-4;// results saved for every 0.5 ms
+purgeWrite 0;
+writeFormat ascii;
+writePrecision 8;
+writeCompression off;
+timeFormat general;
+timePrecision 6;
+runTimeModifiable yes;
+
+adjustTimeStep yes;
+maxCo 0.2; // courant limit
+maxAlphaCo 0.2; // courant near interface
+maxDeltaT 4e-6;

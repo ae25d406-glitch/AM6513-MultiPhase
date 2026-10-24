@@ -1,0 +1,16 @@
+// split mesh for parallel run
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object decomposeParDict;
+}
+
+numberOfSubdomains 2;
+method simple;// split the domain into 2 horizontal strips
+
+simpleCoeffs
+{
+    n (1 2 1);// 2 pieces stacked in y 
+}
